@@ -1,9 +1,13 @@
 package io.zipcoder.interfaces;
 
+import com.sun.deploy.security.SelectableSecurityManager;
+import sun.font.DelegatingShape;
+
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
-public class People {
+public class People<E> implements Iterable<E>{
     private List<Person> personList;
     private Person person;
 
@@ -17,7 +21,9 @@ public class People {
 
     public Person findById(long id) {
         for (Person i : personList) {
-            if (person.getId() == id) {
+            if (i.getId() == id) {
+                person = i;
+                break;
             }
         }   return person;
     }
@@ -27,7 +33,9 @@ public class People {
     }
 
     public void remove(Person person)   {
-        personList.remove(person);
+        if (contains(person)) {
+            personList.remove(person);
+        }
     }
 
     public void remove(Long id) {
@@ -51,6 +59,10 @@ public class People {
         return personArray;
     }
 
+
+    public Iterator iterator() {
+        return (Iterator<E>)personList.iterator();
+    }
 
 
 }
