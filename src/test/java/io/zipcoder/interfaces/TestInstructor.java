@@ -20,7 +20,7 @@ public class TestInstructor {
     @Test
     public void testTeach() {
         Instructor instructor = new Instructor(2, "Mr. Lewis");
-        Student student = new Student(8, "Mo", 0);
+        Student student = new Student(8, "Mo");
         instructor.teach(student, 5.0);
 
         double expected = 5.0;
@@ -32,8 +32,8 @@ public class TestInstructor {
     @Test
     public void totalStudyTime()    {
         Instructor instructor = new Instructor(2, "Mr. Lewis");
-        Student student = new Student(8, "Mo", 0);
-        Student student1 = new Student(9, "Phil", 0);
+        Student student = new Student(8, "Mo");
+        Student student1 = new Student(9, "Phil");
         Learner[] learners = new Learner[]  {student, student1};
 
         instructor.lecture(learners, 20);

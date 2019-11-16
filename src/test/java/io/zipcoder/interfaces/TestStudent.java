@@ -7,7 +7,7 @@ public class TestStudent {
 
     @Test
     public void testImplementation()    {
-        Student student = new Student(1, "Mike", 0);
+        Student student = new Student(1, "Mike");
 
         Assert.assertTrue(student instanceof Learner);
     }
@@ -15,14 +15,14 @@ public class TestStudent {
 
     @Test
     public void testInheritance()   {
-        Student student = new Student(8, "Mo", 0);
+        Student student = new Student(8, "Mo");
 
         Assert.assertTrue(student instanceof Person);
     }
 
     @Test
     public void testLearn() {
-        Student student = new Student(8, "Mo", 5);
+        Student student = new Student(8, "Mo");
         student.learn(2.5);
         student.learn(2.5);
 

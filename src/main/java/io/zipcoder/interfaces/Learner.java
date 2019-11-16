@@ -2,7 +2,7 @@ package io.zipcoder.interfaces;
 
 public interface Learner {
 
-    public Double learn(Double numberOfHours);
+    public void learn(Double numberOfHours);
 
     public Double getTotalStudyTime();
 

@@ -11,24 +11,28 @@ public class TestPeople {
     @Test
     public void testAdd()   {
        List<Person> personList= new ArrayList<Person>();
-        People people = new People(personList);
+        People people = new People();
         Person person = new Person(5, "Billy Jean");
 
         people.add(person);
-        Assert.assertTrue(personList.contains(person));
+        Assert.assertTrue(people.contains(person));
+        Assert.assertTrue(people.count() == 1);
     }
 
     @Test
     public void testRemove()    {
         List<Person> personList= new ArrayList<Person>();
-        People people = new People(personList);
+        People people = new People();
         Person person = new Person(5, "Billy Jean");
+        Person person2 = new Person(4, "Billy Jean2");
         people.add(person);
+        people.add(person2);
 
-        personList.remove(person);
+        people.count();
+        people.remove(person2);
 
-        int expected = 0;
-        int actual = personList.size();
+        int expected = 1;
+        int actual = people.count();
 
         Assert.assertEquals(expected, actual);
     }
@@ -36,7 +40,7 @@ public class TestPeople {
     @Test
     public void testFindById()  {
         List<Person> personList= new ArrayList<Person>();
-        People people = new People(personList);
+        People people = new People();
         Person person = new Person(5, "Billy Jean");
         people.add(person);
 

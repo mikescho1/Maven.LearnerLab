@@ -3,16 +3,18 @@ package io.zipcoder.interfaces;
 import com.sun.deploy.security.SelectableSecurityManager;
 import sun.font.DelegatingShape;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class People<E> implements Iterable<E>{
-    private List<Person> personList;
+    private ArrayList<Person> personList;
     private Person person;
 
-    People(List<Person> personList) {
-        this.personList = personList;
+    public People() {
+        this.personList = new ArrayList<Person>();
     }
 
     public void add(Person person) {
@@ -22,10 +24,9 @@ public class People<E> implements Iterable<E>{
     public Person findById(long id) {
         for (Person i : personList) {
             if (i.getId() == id) {
-                person = i;
-                break;
+                return person;
             }
-        }   return person;
+        }   return null;
     }
 
     public boolean contains(Person person)  {
@@ -33,8 +34,9 @@ public class People<E> implements Iterable<E>{
     }
 
     public void remove(Person person)   {
-        if (contains(person)) {
+        if (this.contains(person)) {
             personList.remove(person);
+
         }
     }
 

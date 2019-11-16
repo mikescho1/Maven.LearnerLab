@@ -5,15 +5,12 @@ public class Student extends Person implements Learner{
 
 
 
-    public Student(long identification, String personName, double totalStudyTime) {
+    public Student(long identification, String personName) {
         super(identification, personName);
-        this.totalStudyTime = totalStudyTime;
-
     }
 
-    public Double learn(Double numberOfHours) {
+    public void learn(Double numberOfHours) {
         totalStudyTime = totalStudyTime + numberOfHours;
-        return totalStudyTime;
     }
 
     public Double getTotalStudyTime() {
