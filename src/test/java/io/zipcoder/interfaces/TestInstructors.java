@@ -5,8 +5,10 @@ import org.junit.Test;
 
 public class TestInstructors {
 
+
+
     @Test
-    public void testInstructorInstance()    {
+    public void testInstructorsInstance()    {
         Instructors instructors = Instructors.getInstance();
 
         Integer expected = 2;

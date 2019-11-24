@@ -3,7 +3,7 @@ package io.zipcoder.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Students extends People {
+public final class Students extends People<Student> {
 
     private final static Students INSTANCE = new Students();
 
@@ -16,6 +16,11 @@ public final class Students extends People {
         super.add(MikeG);
         super.add(Ben);
 
+    }
+    @Override
+    public Student[] toArray() {
+      Student[] studentArr = this.getPersonList().toArray(new Student[this.getPersonList().size()]);
+        return studentArr;
     }
 
 

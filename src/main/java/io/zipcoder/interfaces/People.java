@@ -9,19 +9,19 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class People<E> implements Iterable<E>{
-    private ArrayList<Person> personList;
-    private Person person;
+public abstract class  People<E extends  Person> implements Iterable<E>{
+    private ArrayList<E> personList;
+    private E person;
 
     public People() {
-        this.personList = new ArrayList<Person>();
+        this.personList = new ArrayList<E>();
     }
 
-    public void add(Person person) {
+    public void add(E person) {
         this.personList.add(person);
     }
 
-    public Person findById(long id) {
+    public E findById(long id) {
         for (Person i : personList) {
             if (i.getId() == id) {
                 return person;
@@ -38,6 +38,9 @@ public class People<E> implements Iterable<E>{
             personList.remove(person);
 
         }
+    }
+    public List<E> getPersonList() {
+        return personList;
     }
 
     public void remove(Long id) {
@@ -56,10 +59,7 @@ public class People<E> implements Iterable<E>{
         return personList.size();
     }
 
-    public Person[] toArray()   {
-        Person[] personArray = personList.toArray(new Person[personList.size()]);
-        return personArray;
-    }
+    public abstract E[] toArray();
 
 
     public Iterator iterator() {
